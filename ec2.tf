@@ -27,11 +27,11 @@ resource "aws_instance" "App2" {
 }
 
 output "App1_private_dns" {
-  description = "AWS public dns of master ec2 ->"
-  value       = { for ec2_inst1 in aws_instance.App1[*] : ec2_inst1.tags.Name => ec2_inst1.public_dns }
+  description = "AWS private ip of master ec2 ->"
+  value       = { for ec2_inst1 in aws_instance.App1[*] : ec2_inst1.tags.Name => ec2_inst1.private_ip }
 }
 
 output "App2_private_dns" {
-  description = "AWS public dns of master ec2 ->"
-  value       = { for ec2_inst2 in aws_instance.App2[*] : ec2_inst2.tags.Name => ec2_inst2.public_dns }
+  description = "AWS private ip of master ec2 ->"
+  value       = { for ec2_inst2 in aws_instance.App2[*] : ec2_inst2.tags.Name => ec2_inst2.private_ip }
 }
